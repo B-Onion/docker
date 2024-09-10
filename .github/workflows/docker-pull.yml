@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Pull NVIDIA CUDA Docker Image
-        run: docker pull nvidia/cuda:12.2.0-cudnn8-devel-ubuntu20.04
+        run: docker pull nvidia/cuda:12.6.1-base-ubuntu20.04
 
       - name: Run Docker Container
         run: |
-          docker run nvidia/cuda:12.2.0-cudnn8-devel-ubuntu20.04 echo "Docker container is running"
+          docker run nvidia/cuda:12.6.1-base-ubuntu20.04 echo "Docker container is running"
