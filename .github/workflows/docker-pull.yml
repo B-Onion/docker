@@ -13,10 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 如果需要登录 Docker Hub
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-
       - name: Pull NVIDIA CUDA Docker Image
         run: docker pull nvidia/cuda:12.2.0-cudnn8-devel-ubuntu20.04
 
