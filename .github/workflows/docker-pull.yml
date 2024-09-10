@@ -1,0 +1,21 @@
+name: Docker CUDA Image Pull and Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Pull NVIDIA CUDA Docker Image
+        run: docker pull cuda:12.2.0-cudnn8-devel-ubuntu20.04
+
+      - name: Run Docker Container
+        run: |
+          docker run --gpus all nvidia/cuda:12.2.0-cudnn8-devel-ubuntu20.04 nvidia-smi
